@@ -18,6 +18,13 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/public/app'));
 app.use(express.static(__dirname + '/bower_components/json-formatter/dist'));
 
+//CORS middleware
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+}
 // Set up our one route to the index.html file.
 app.get('*', function (req, res) {
 	res.sendFile(path.join(__dirname + '/public/index.html'));
