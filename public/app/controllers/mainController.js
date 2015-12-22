@@ -52,7 +52,7 @@
      * initalise function get helper operations data
      */
      (function init() {
-       var request={method:'GET',url:baseUrl+'/data/operations.json'};
+       var request={method:'GET',url:'/data/operations.json'};
        $http(request).then(
          function(response){
          vm.rootNode=response.data.root;
